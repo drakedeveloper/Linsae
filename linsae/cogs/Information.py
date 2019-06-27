@@ -17,63 +17,51 @@ class Info(commands.Cog):
     async def help(self, ctx):
         msg = await ctx.channel.send("🤚 i'm gonna send you a dm with the commands! make sure that your dms are open!")
         await msg.delete(delay=5)
-        embed1 = discord.Embed(title='__Help__', description=f"""Hello, {ctx.message.author.mention}, to get help react either with:
-🇲: to get help about moderation commands.
-🇹: to get help about the ticket system.""", colour=0x5bff14, timestamp=datetime.utcnow())
+        embed1 = discord.Embed(title='__Help__', description=f"""Hello, {ctx.message.author.mention}, those are the commands of moderation and tikcet system.""", colour=0x5bff14, timestamp=datetime.utcnow())
         embed1.add_field(name="**Prefix**", value="The bot's prefix is ?")
         embed1.set_thumbnail(url=self.bot.user.avatar_url)
         embed1.set_footer(text="Made by Ɗrake#7418", icon_url=self.bot.user.avatar_url)
         msg = await ctx.message.author.send(embed=embed1)
-        await msg.add_reaction("🇲")
-        await msg.add_reaction("🇹")
-        def check(reaction, user):
-            return user == ctx.message.author and str(reaction.emoji) == '🇲' or str(reaction.emoji) == '🇹' and reaction.message == msg
-
-
-        reaction, user = await self.bot.wait_for('reaction_add', check=check)
-        if str(reaction.emoji) == '🇲':
-            embed =discord.Embed(title='__Moderation__', description=f"""Those are the commands of moderation""", colour=0x5bff14, timestamp=datetime.utcnow())
-            embed.add_field(name="**Logchannel**", value="This command is used to to specify the log channel for the bot and it's necessary use it on this format: ?logchannel [mention channel], example: ?logchannel #linsae-logs")
-            embed.add_field(name="**Ban**", value="This command is used to ban members without a timestamp and you can use it on this format: ?ban [member] [optional reason], example; ?ban @Ɗrake#7418 toxic")
-            embed.add_field(name="**Tempban**",
+        await msg.add_reaction("👍")
+        embed =discord.Embed(title='__Moderation__', description=f"""Those are the commands of moderation""", colour=0x5bff14, timestamp=datetime.utcnow())
+        embed.add_field(name="**Logchannel**", value="This command is used to to specify the log channel for the bot and it's necessary use it on this format: ?logchannel [mention channel], example: ?logchannel #linsae-logs")
+        embed.add_field(name="**Ban**", value="This command is used to ban members without a timestamp and you can use it on this format: ?ban [member] [optional reason], example; ?ban @Ɗrake#7418 toxic")
+        embed.add_field(name="**Tempban**",
                             value="This command is used to ban members temporarily and you can use it on this format: ?ban [member] [timestamp] [optional reason], ?tempban @Ɗrake#7418 1mo2w1d2h3m toxic, notice mo for monthn w for week, d for day, h for hour and m four minutes and you can choose to specify some of them or not, example: ?tempban @Ɗrake#7418 1h toxic")
-            embed.add_field(name="**Unban**",
+        embed.add_field(name="**Unban**",
                             value="This command is used to unban members without a timestamp and you can use it on this format: ?unban [member_id] [optional reason], example; ?unban @168704474066452481 reason")
-            embed.add_field(name="**Kick**",
+        embed.add_field(name="**Kick**",
                             value="This command is used to kick members and you can use it on this format: ?kick [member] [optional reason], example; ?kick @Ɗrake#7418 toxic")
-            embed.add_field(name="**Warn**",
+        embed.add_field(name="**Warn**",
                             value="This command is used to warn members and you can use it on this format: ?warn [member] [optional reason], example; ?warn @Ɗrake#7418 toxic, Notice: 3 warnings = tempban for 2 hours")
-            embed.add_field(name="**Dewarn**",
+        embed.add_field(name="**Dewarn**",
                             value="This command is used to remove the warns from specifique member and you can use it on this format: ?dewarn [member] [optional reason], example; ?dewarn @Ɗrake#7418 acting good.")
-            embed.add_field(name="**Warnings**",
+        embed.add_field(name="**Warnings**",
                             value="This command is used to get the member warnings and you can use it on this format: ?warnings [member], example; ?warnings @Ɗrake#7418, Notice: if member is not defined then it return the message author warnings.")
-            embed.add_field(name="**Tempmute**",
+        embed.add_field(name="**Tempmute**",
                             value="This command is used to mute members temporarily and you can use it on this format: ?tempmute [member] [timestamp] [optional reason], ?tempmute @Ɗrake#7418 1mo2w1d2h3m toxic, notice mo for monthn w for week, d for day, h for hour and m four minutes and you can choose to specify some of them or not, example: ?tempmute @Ɗrake#7418 1h toxic")
-            embed.add_field(name="**Unmute**",
+        embed.add_field(name="**Unmute**",
                             value="This command is used to unmute members without a timestamp and you can use it on this format: ?unmute [member] [optional reason], example; ?unmute @Ɗrake#7418 reason")
-            embed.add_field(name="**Lock**",
+        embed.add_field(name="**Lock**",
                             value="This command is used to lock the channel and you can use it on this format: ?lock .")
-            embed.add_field(name="**Unlock**",
+        embed.add_field(name="**Unlock**",
                             value="This command is used to unlock the channel and you can use it on this format: ?unlock ")
-            embed.add_field(name="**Clear**",
+        embed.add_field(name="**Clear**",
                             value="This command is used to an ammout of messages from a  channel and you can use it on this format: ?clear [ammount of messages], example: ?clear 10 .")
-            embed.add_field(name="**Slowmode**",
+        embed.add_field(name="**Slowmode**",
                             value="This command is used to set slowmode for a  channel and you can use it on this format: ?slowmode [delay per seconds], example: ?slowmode 10, Notice: to stop the slowmode write: ?slowmode 0.")
-            embed.add_field(name="**Ticket system**",
-                            value="if you wanna get help about the ticket system just type help in any chat and react with 🇹.")
-            embed1.add_field(name="Info", value="This command is used to get information about the bot and its creator.")
-            embed1.add_field(name="Server", value="This command is used to get information about the server.")
-            embed.set_footer(text="Made by Ɗrake#7418", icon_url=self.bot.user.avatar_url)
-            await ctx.message.author.send(embed=embed)
-        if str(reaction.emoji) == '🇹':
-            embed = discord.Embed(title='__Ticket system__', description=f"""Those are the commands of ticket system""",
+        embed.add_field(name="Info", value="This command is used to get information about the bot and its creator.")
+        embed.add_field(name="Server", value="This command is used to get information about the server.")
+        embed.set_footer(text="Made by Ɗrake#7418", icon_url=self.bot.user.avatar_url)
+        await ctx.message.author.send(embed=embed)
+        embed2 = discord.Embed(title='__Ticket system__', description=f"""Those are the commands of ticket system""",
                                   colour=0x5bff14, timestamp=datetime.utcnow())
-            embed1.add_field(name="**Ticketconfig**", value="This command is a must before beginning to use the ticket system, it allows you to setup the channels and roles and category for the ticket system, Notice: never change the role name or names of categories and channel created by the bot.")
-            embed.add_field(name="**Support**", value="This command is used to open a ticket and works only on ticket-request channel and you can use it on this format: ?support.")
-            embed.add_field(name="**Conversation**", value="This command is used to retrieve conversation history from a ticket and you can use it on this format: ?conversation [conversation_id(you can find within the ticket channel name)], example: ?conversation 10, Notice: please wait some time before using this command when you already finished a ticket..")
+        embed2.add_field(name="**Ticketconfig**", value="This command is a must before beginning to use the ticket system, it allows you to setup the channels and roles and category for the ticket system, Notice: never change the role name or names of categories and channel created by the bot.")
+        embed2.add_field(name="**Support**", value="This command is used to open a ticket and works only on ticket-request channel and you can use it on this format: ?support.")
+        embed2.add_field(name="**Conversation**", value="This command is used to retrieve conversation history from a ticket and you can use it on this format: ?conversation [conversation_id(you can find within the ticket channel name)], example: ?conversation 10, Notice: please wait some time before using this command when you already finished a ticket..")
 
-            embed.set_footer(text="Made by Ɗrake#7418", icon_url=self.bot.user.avatar_url)
-            await ctx.message.author.send(embed=embed)
+        embed2.set_footer(text="Made by Ɗrake#7418", icon_url=self.bot.user.avatar_url)
+        await ctx.message.author.send(embed=embed2)
     @commands.command()
     async def info(self, ctx):
         embed = discord.Embed(title="**Info**", color=0x7a42f4, timestamp=datetime.utcnow())
