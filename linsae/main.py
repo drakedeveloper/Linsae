@@ -5,7 +5,7 @@ import logging
 import os
 
 def read_token():
-    with open("token/token.txt", "r") as f:
+    with open("token.txt", "r") as f:
         lines = f.readlines()
         return lines[0].strip()
 token = read_token()
