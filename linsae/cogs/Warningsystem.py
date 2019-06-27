@@ -103,7 +103,7 @@ class Warninggsystem(commands.Cog):
                         embed1.add_field(name="__Type__", value="**Warn**")
                         embed1.add_field(name="__Moderator__", value=f"{ctx.message.author.mention}")
                         embed1.add_field(name="__Member__", value=f"{member.mention}")
-                        embed1.add_field(name="__Reason__", value=f"{' '.join(reason)}")
+                        embed1.add_field(name="__Reason__", value=f"-{' '.join(reason)}")
                         embed1.add_field(name="__Warnings__", value=f"{len(li1)}")
                         embed1.add_field(name="__Log channel__",
                                          value=f"{channel1.mention}")
