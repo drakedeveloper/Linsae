@@ -30,3 +30,5 @@ and some information commands:
 * help
 * info
 * server
+# Test Server
+If you wanna see the bot working join this server : https://discord.gg/Z4ppsrk
