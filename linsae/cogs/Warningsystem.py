@@ -314,10 +314,7 @@ class Warninggsystem(commands.Cog):
                 '<:stop:587970807909842944> Something is wrong, try again!')
             await msg2.delete(delay=5)
 
-        if isinstance(error, commands.CommandInvokeError):
-            msg4 = await ctx.send(
-                '<:stop:587970807909842944> Something is wrong, try again!')
-            await msg4.delete(delay=5)
+       
         if isinstance(error, commands.CommandOnCooldown):
             msg9 = 'This command is ratelimited, please try again in {:.2f}seconds'.format(error.retry_after)
             msg6 = await ctx.send(msg9)
@@ -340,10 +337,7 @@ class Warninggsystem(commands.Cog):
                 '<:stop:587970807909842944> Something is wrong, try again!')
             await msg2.delete(delay=5)
 
-        if isinstance(error, commands.CommandInvokeError):
-            msg4 = await ctx.send(
-                '<:stop:587970807909842944> Something is wrong, try again!')
-            await msg4.delete(delay=5)
+      
         if isinstance(error, commands.CommandOnCooldown):
             msg9 = 'This command is ratelimited, please try again in {:.2f}seconds'.format(error.retry_after)
             msg6 = await ctx.send(msg9)
