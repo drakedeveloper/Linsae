@@ -406,7 +406,7 @@ class Moderation(commands.Cog):
                         await ctx.message.delete()
                         await msg.delete(delay=15)
                         await asyncio.sleep(months_s + week_s + days_s + hours_s + minutes_s)
-                        await member.remove_roles(member)
+                        await member.remove_roles(role)
 
                 if len(lig) == 0:
                     role = discord.utils.get(ctx.guild.roles, name="Muted")
@@ -425,7 +425,7 @@ class Moderation(commands.Cog):
                     await ctx.message.delete()
                     await msg.delete(delay=15)
                     await asyncio.sleep(months_s + week_s + days_s + hours_s + minutes_s)
-                    await member.remove_roles(member)
+                    await member.remove_roles(role)
             if member.id == ctx.message.author.id or member.id == self.bot.user.id:
                 msg5 = await ctx.message.channel.send("🚫, you can't mute this user!")
                 await msg5.delete(delay=5)
